@@ -704,4 +704,27 @@
         });
     </script>
 </body>
+
 </html>
+const initialTeams = [
+    {
+        name: "بارسلونا",
+        short: "BAR",
+        played: 6,
+        won: 4,
+        drawn: 1,
+        lost: 1,
+        goalsFor: 12,
+        goalsAgainst: 5
+    },
+    // ... تیم‌های دیگر
+];
+function loadTeams() {
+    const saved = localStorage.getItem('championsCupTeams');
+    if (saved && JSON.parse(saved).length > 0) {
+        teams = JSON.parse(saved);
+    } else {
+        teams = [...initialTeams]; // استفاده از داده‌های اولیه
+        saveTeams();
+    }
+}
